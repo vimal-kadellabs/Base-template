@@ -4,7 +4,6 @@ export const ROUTES = {
   DASHBOARD: '/dashboard',
   USERS: '/users',
   CONFIG: '/config',
-  ADMIN_PANEL: '/admin',
 };
 
 // Route configuration with metadata
