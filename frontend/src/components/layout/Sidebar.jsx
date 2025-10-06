@@ -6,7 +6,8 @@ import {
   Users, 
   Settings,
   Menu,
-  X
+  X,
+  LayoutGrid
 } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
