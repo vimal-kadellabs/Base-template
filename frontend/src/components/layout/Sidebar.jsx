@@ -62,7 +62,7 @@ export const Sidebar = () => {
       <div className="p-6 flex items-center justify-between border-b border-slate-800">
         {!isCollapsed && (
           <div className="flex items-center space-x-2" data-testid="sidebar-logo">
-            <Shield className="h-8 w-8 text-emerald-400" />
+            <LayoutGrid className="h-8 w-8 text-emerald-400" />
             <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
               Admin Panel
             </span>
