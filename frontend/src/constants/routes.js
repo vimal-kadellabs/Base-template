@@ -35,11 +35,4 @@ export const ROUTE_CONFIG = [
     requiresAuth: true,
     allowedRoles: ['admin'],
   },
-  {
-    path: ROUTES.ADMIN_PANEL,
-    name: 'Admin Panel',
-    isPublic: false,
-    requiresAuth: true,
-    allowedRoles: ['admin'],
-  },
 ];
