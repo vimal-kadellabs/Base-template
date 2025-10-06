@@ -4,8 +4,7 @@ import { ROUTES } from '@/constants/routes';
 import { 
   LayoutDashboard, 
   Users, 
-  Settings, 
-  Shield,
+  Settings,
   Menu,
   X
 } from 'lucide-react';
@@ -38,12 +37,6 @@ export const Sidebar = () => {
       name: 'Configuration',
       path: ROUTES.CONFIG,
       icon: Settings,
-      roles: ['admin'],
-    },
-    {
-      name: 'Admin Panel',
-      path: ROUTES.ADMIN_PANEL,
-      icon: Shield,
       roles: ['admin'],
     },
   ];
