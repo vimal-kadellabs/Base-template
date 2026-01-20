@@ -8,6 +8,7 @@ import { COLOR_SCHEMES } from './colors';
 import { FONTS } from './fonts';
 import { NAV_POSITIONS } from '../layout/navigation';
 import { LAYOUT_TYPES } from '../layout/types';
+import { LOGIN_LAYOUTS } from '../layout/login';
 
 /**
  * Default settings configuration
@@ -22,6 +23,11 @@ export const defaultSettings = {
   navigation: {
     position: NAV_POSITIONS.VERTICAL,
     layout: LAYOUT_TYPES.EXPANDABLE,
+  },
+  
+  // Login screen settings
+  login: {
+    layout: LOGIN_LAYOUTS.CENTER,
   },
 };
 
@@ -56,6 +62,16 @@ export const settingsSchema = {
         type: 'string',
         values: Object.values(LAYOUT_TYPES),
         default: defaultSettings.navigation.layout,
+      },
+    },
+  },
+  login: {
+    type: 'object',
+    properties: {
+      layout: {
+        type: 'string',
+        values: Object.values(LOGIN_LAYOUTS),
+        default: defaultSettings.login.layout,
       },
     },
   },

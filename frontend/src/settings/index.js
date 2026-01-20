@@ -7,6 +7,7 @@
  * - Font selection
  * - Navigation positioning
  * - Layout types
+ * - Login screen layout
  * 
  * Usage:
  * import { settings, THEME_MODES, COLOR_SCHEMES } from '@/settings';
@@ -67,6 +68,13 @@ export {
   getLayoutTypeCss,
   getLayoutTypeFeatures,
   layoutTypeSupportsFeature,
+  
+  // Login layout constants and configs
+  LOGIN_LAYOUTS,
+  loginLayouts,
+  getAvailableLoginLayouts,
+  getLoginLayoutById,
+  isValidLoginLayout,
 } from './layout';
 
 // Storage exports
@@ -87,7 +95,7 @@ export {
  */
 import { defaultSettings } from './theme';
 import { themeModes, colorSchemes, fonts } from './theme';
-import { navigationPositions, layoutTypes } from './layout';
+import { navigationPositions, layoutTypes, loginLayouts } from './layout';
 
 export const settings = {
   defaults: defaultSettings,
@@ -99,5 +107,6 @@ export const settings = {
   layout: {
     positions: navigationPositions,
     types: layoutTypes,
+    login: loginLayouts,
   },
 };
