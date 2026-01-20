@@ -1,4 +1,5 @@
-import { ProtectedRoute, MainLayout } from '@/components/layout';
+import { ProtectedRoute } from '@/components/layout';
+import { BaseLayout, PageContainer } from '@/layouts';
 import { useAuth } from '@/hooks/useAuth';
 import { UserDashboard, AdminDashboard } from '@/components/dashboard';
 
@@ -11,9 +12,11 @@ export const DashboardPage = () => {
 
   return (
     <ProtectedRoute>
-      <MainLayout title="Dashboard">
-        {isAdmin ? <AdminDashboard /> : <UserDashboard />}
-      </MainLayout>
+      <BaseLayout title="Dashboard">
+        <PageContainer>
+          {isAdmin ? <AdminDashboard /> : <UserDashboard />}
+        </PageContainer>
+      </BaseLayout>
     </ProtectedRoute>
   );
 };
