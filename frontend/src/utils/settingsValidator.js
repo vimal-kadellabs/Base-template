@@ -8,6 +8,7 @@ import { isValidColorScheme, COLOR_SCHEMES } from '@/settings/theme/colors';
 import { isValidFont, FONTS } from '@/settings/theme/fonts';
 import { isValidNavPosition, NAV_POSITIONS } from '@/settings/layout/navigation';
 import { isValidLayoutType, LAYOUT_TYPES } from '@/settings/layout/types';
+import { isValidLoginLayout, LOGIN_LAYOUTS } from '@/settings/layout/login';
 import { defaultSettings } from '@/settings/theme/defaults';
 
 /**
@@ -99,6 +100,22 @@ export const validateLayoutType = (layout) => {
 };
 
 /**
+ * Validate login layout
+ * @param {string} layout - Login layout to validate
+ * @returns {object} Validation result
+ */
+export const validateLoginLayout = (layout) => {
+  if (isValidLoginLayout(layout)) {
+    return { valid: true, value: layout };
+  }
+  return { 
+    valid: false, 
+    value: defaultSettings.login.layout,
+    error: `Invalid login layout: ${layout}. Using default: ${defaultSettings.login.layout}`
+  };
+};
+
+/**
  * Validate complete settings object
  * @param {object} settings - Settings to validate
  * @returns {ValidationResult} Validation result with sanitized settings
@@ -106,7 +123,8 @@ export const validateLayoutType = (layout) => {
 export const validateSettings = (settings) => {
   const errors = [];
   const sanitized = {
-    navigation: {}
+    navigation: {},
+    login: {}
   };
   
   // Validate mode
@@ -134,6 +152,11 @@ export const validateSettings = (settings) => {
   sanitized.navigation.layout = layoutResult.value;
   if (!layoutResult.valid) errors.push(layoutResult.error);
   
+  // Validate login layout
+  const loginLayoutResult = validateLoginLayout(settings?.login?.layout);
+  sanitized.login.layout = loginLayoutResult.value;
+  if (!loginLayoutResult.valid) errors.push(loginLayoutResult.error);
+  
   return {
     valid: errors.length === 0,
     errors,
@@ -148,7 +171,11 @@ export const validateSettings = (settings) => {
  */
 export const mergeWithDefaults = (partialSettings) => {
   if (!partialSettings) {
-    return { ...defaultSettings, navigation: { ...defaultSettings.navigation } };
+    return { 
+      ...defaultSettings, 
+      navigation: { ...defaultSettings.navigation },
+      login: { ...defaultSettings.login }
+    };
   }
   
   return {
@@ -158,6 +185,9 @@ export const mergeWithDefaults = (partialSettings) => {
     navigation: {
       position: partialSettings.navigation?.position || defaultSettings.navigation.position,
       layout: partialSettings.navigation?.layout || defaultSettings.navigation.layout,
+    },
+    login: {
+      layout: partialSettings.login?.layout || defaultSettings.login.layout,
     }
   };
 };
@@ -187,7 +217,8 @@ export const settingsEqual = (a, b) => {
     a.colorScheme === b.colorScheme &&
     a.font === b.font &&
     a.navigation?.position === b.navigation?.position &&
-    a.navigation?.layout === b.navigation?.layout
+    a.navigation?.layout === b.navigation?.layout &&
+    a.login?.layout === b.login?.layout
   );
 };
 
@@ -214,6 +245,9 @@ export const getChangedSettings = (oldSettings, newSettings) => {
   }
   if (oldSettings.navigation?.layout !== newSettings.navigation?.layout) {
     changes.navLayout = newSettings.navigation.layout;
+  }
+  if (oldSettings.login?.layout !== newSettings.login?.layout) {
+    changes.loginLayout = newSettings.login.layout;
   }
   
   return changes;
