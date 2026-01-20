@@ -26,10 +26,10 @@ export const NotificationConfig = ({ config, onChange }) => {
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Email Notifications */}
-        <div className="flex items-center justify-between py-2 border-b border-slate-100">
+        <div className="flex items-center justify-between py-2 border-b border-border">
           <div className="space-y-0.5">
             <Label htmlFor="emailNotif">Email Notifications</Label>
-            <p className="text-sm text-slate-500">Receive notifications via email</p>
+            <p className="text-sm text-muted-foreground">Receive notifications via email</p>
           </div>
           <Switch
             id="emailNotif"
@@ -40,10 +40,10 @@ export const NotificationConfig = ({ config, onChange }) => {
         </div>
 
         {/* SMS Notifications */}
-        <div className="flex items-center justify-between py-2 border-b border-slate-100">
+        <div className="flex items-center justify-between py-2 border-b border-border">
           <div className="space-y-0.5">
             <Label htmlFor="smsNotif">SMS Notifications</Label>
-            <p className="text-sm text-slate-500">Receive notifications via SMS</p>
+            <p className="text-sm text-muted-foreground">Receive notifications via SMS</p>
           </div>
           <Switch
             id="smsNotif"
@@ -54,10 +54,10 @@ export const NotificationConfig = ({ config, onChange }) => {
         </div>
 
         {/* In-App Notifications */}
-        <div className="flex items-center justify-between py-2 border-b border-slate-100">
+        <div className="flex items-center justify-between py-2 border-b border-border">
           <div className="space-y-0.5">
             <Label htmlFor="inAppNotif">In-App Notifications</Label>
-            <p className="text-sm text-slate-500">Receive notifications within the app</p>
+            <p className="text-sm text-muted-foreground">Receive notifications within the app</p>
           </div>
           <Switch
             id="inAppNotif"

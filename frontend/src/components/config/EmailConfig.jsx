@@ -74,7 +74,7 @@ export const EmailConfig = ({ config, onChange }) => {
         <div className="flex items-center justify-between py-2">
           <div className="space-y-0.5">
             <Label htmlFor="enableSSL">Enable SSL/TLS</Label>
-            <p className="text-sm text-slate-500">Use secure connection for SMTP</p>
+            <p className="text-sm text-muted-foreground">Use secure connection for SMTP</p>
           </div>
           <Switch
             id="enableSSL"
