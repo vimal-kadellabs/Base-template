@@ -17,7 +17,6 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Separator } from '@/components/ui/separator';
 
 export function StickyIconMenu({ 
   className = '',
@@ -99,26 +98,6 @@ export function StickyIconMenu({
             })}
           </nav>
         </ScrollArea>
-
-        {/* User Avatar */}
-        <div className="border-t border-sidebar-border p-2">
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <button 
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold mx-auto"
-                data-testid="sticky-menu-user"
-              >
-                {currentUser?.username?.charAt(0).toUpperCase() || 'U'}
-              </button>
-            </TooltipTrigger>
-            <TooltipContent side="right">
-              <div className="text-sm">
-                <p className="font-medium">{currentUser?.username || 'User'}</p>
-                <p className="text-muted-foreground capitalize">{currentUser?.role || 'user'}</p>
-              </div>
-            </TooltipContent>
-          </Tooltip>
-        </div>
       </aside>
     </TooltipProvider>
   );

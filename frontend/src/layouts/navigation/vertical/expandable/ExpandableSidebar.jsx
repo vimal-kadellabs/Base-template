@@ -6,17 +6,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PanelLeftClose, PanelLeft, LayoutGrid } from 'lucide-react';
-import { useAuth } from '@/hooks/useAuth';
 import { useLayout } from '@/hooks/settings';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { VerticalNav } from '../VerticalNav';
 import { ROUTES } from '@/constants/routes';
 
 export function ExpandableSidebar({ className = '' }) {
-  const { currentUser } = useAuth();
-  const { sidebarCollapsed, toggleSidebar, css } = useLayout();
+  const { sidebarCollapsed, toggleSidebar } = useLayout();
 
   return (
     <aside
@@ -63,11 +60,10 @@ export function ExpandableSidebar({ className = '' }) {
         showTooltips={true}
       />
 
-      {/* Footer with toggle and user */}
+      {/* Footer with toggle button only */}
       <div className="mt-auto border-t border-sidebar-border">
-        {/* Toggle Button */}
         <div className={cn(
-          'flex items-center p-2',
+          'flex items-center p-3',
           sidebarCollapsed ? 'justify-center' : 'justify-end'
         )}>
           <Button
@@ -84,28 +80,6 @@ export function ExpandableSidebar({ className = '' }) {
               <PanelLeftClose className="h-4 w-4" />
             )}
           </Button>
-        </div>
-
-        <Separator className="bg-sidebar-border" />
-
-        {/* User Info */}
-        <div className={cn(
-          'flex items-center gap-3 p-3',
-          sidebarCollapsed && 'justify-center'
-        )} data-testid="sidebar-user">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold">
-            {currentUser?.username?.charAt(0).toUpperCase() || 'U'}
-          </div>
-          {!sidebarCollapsed && (
-            <div className="flex flex-col overflow-hidden">
-              <span className="truncate text-sm font-medium text-sidebar-foreground">
-                {currentUser?.username || 'User'}
-              </span>
-              <span className="truncate text-xs text-muted-foreground capitalize">
-                {currentUser?.role || 'user'}
-              </span>
-            </div>
-          )}
         </div>
       </div>
     </aside>
