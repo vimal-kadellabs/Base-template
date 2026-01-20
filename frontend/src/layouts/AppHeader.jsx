@@ -77,7 +77,7 @@ export function AppHeader({ title = '' }) {
 
       {/* Global Search (centered for vertical nav) */}
       {!isHorizontal && (
-        <div className="flex-1 flex justify-center px-4">
+        <div className="flex-1 flex px-4">
           <GlobalSearch />
         </div>
       )}
