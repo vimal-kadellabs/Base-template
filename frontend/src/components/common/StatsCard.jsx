@@ -17,7 +17,7 @@ export const StatsCard = ({
   title,
   value,
   icon: Icon,
-  iconColor = 'text-emerald-500',
+  iconColor = 'text-primary',
   trend,
   description,
 }) => {
@@ -26,16 +26,16 @@ export const StatsCard = ({
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
           <div className="flex-1">
-            <p className="text-sm font-medium text-slate-600 mb-1">{title}</p>
+            <p className="text-sm font-medium text-muted-foreground mb-1">{title}</p>
             <div className="flex items-baseline space-x-2">
-              <p className="text-3xl font-bold text-slate-900" data-testid="stats-value">
+              <p className="text-3xl font-bold text-foreground" data-testid="stats-value">
                 {value}
               </p>
               {trend && (
                 <span
                   className={cn(
                     'text-sm font-medium',
-                    trend.startsWith('+') ? 'text-green-600' : 'text-red-600'
+                    trend.startsWith('+') ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
                   )}
                 >
                   {trend}
@@ -43,13 +43,13 @@ export const StatsCard = ({
               )}
             </div>
             {description && (
-              <p className="text-xs text-slate-500 mt-1">{description}</p>
+              <p className="text-xs text-muted-foreground mt-1">{description}</p>
             )}
           </div>
           {Icon && (
             <div
               className={cn(
-                'p-3 rounded-xl bg-slate-50',
+                'p-3 rounded-xl bg-muted',
                 iconColor
               )}
             >

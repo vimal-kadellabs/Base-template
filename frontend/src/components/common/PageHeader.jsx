@@ -16,11 +16,11 @@ export const PageHeader = ({ title, description, action }) => {
       data-testid="page-header"
     >
       <div>
-        <h2 className="text-3xl font-bold text-slate-900 mb-2" data-testid="page-header-title">
+        <h2 className="text-3xl font-bold text-foreground mb-2" data-testid="page-header-title">
           {title}
         </h2>
         {description && (
-          <p className="text-slate-600" data-testid="page-header-description">
+          <p className="text-muted-foreground" data-testid="page-header-description">
             {description}
           </p>
         )}
