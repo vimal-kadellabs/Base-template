@@ -1,6 +1,6 @@
 /**
  * Header Component
- * Application header with theme toggle and user menu
+ * Application header with global search, theme toggle and user menu
  */
 
 import React from 'react';
@@ -19,6 +19,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { ThemeModeToggle } from '@/components/header/ThemeModeToggle';
+import { GlobalSearch } from '@/components/header/GlobalSearch';
 import { HorizontalNav } from '@/layouts/navigation/horizontal';
 import { ROUTES } from '@/constants/routes';
 import { toast } from 'sonner';
@@ -67,18 +68,27 @@ export function AppHeader({ title = '' }) {
 
       {/* Page Title (for vertical nav) */}
       {!isHorizontal && title && (
-        <div className="flex-1">
+        <div className="mr-4">
           <h1 className="text-xl font-semibold" data-testid="page-title">
             {title}
           </h1>
         </div>
       )}
 
-      {/* Spacer for vertical nav without title */}
-      {!isHorizontal && !title && <div className="flex-1" />}
+      {/* Global Search (centered for vertical nav) */}
+      {!isHorizontal && (
+        <div className="flex-1 flex justify-center px-4">
+          <GlobalSearch />
+        </div>
+      )}
 
       {/* Right Side Actions */}
       <div className="flex items-center gap-2">
+        {/* Global Search (for horizontal nav - compact) */}
+        {isHorizontal && (
+          <GlobalSearch className="w-48 md:w-64" />
+        )}
+
         {/* Theme Toggle */}
         <ThemeModeToggle />
 

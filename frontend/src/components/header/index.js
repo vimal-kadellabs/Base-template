@@ -3,3 +3,4 @@
  */
 
 export { ThemeModeToggle } from './ThemeModeToggle';
+export { GlobalSearch } from './GlobalSearch';
