@@ -40,13 +40,13 @@ export const UserTable = ({ users, onEdit, onDelete, onResetPassword }) => {
             <TableRow key={user.id} data-testid={`user-row-${user.id}`}>
               <TableCell>
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white font-bold text-xs">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">
                     {user.username.charAt(0).toUpperCase()}
                   </div>
                   <span className="font-medium">{user.username}</span>
                 </div>
               </TableCell>
-              <TableCell className="text-slate-600">{user.email}</TableCell>
+              <TableCell className="text-muted-foreground">{user.email}</TableCell>
               <TableCell>
                 <Badge
                   variant={user.role === 'admin' ? 'default' : 'secondary'}
@@ -63,10 +63,10 @@ export const UserTable = ({ users, onEdit, onDelete, onResetPassword }) => {
                   {user.status}
                 </Badge>
               </TableCell>
-              <TableCell className="text-slate-600 text-sm">
+              <TableCell className="text-muted-foreground text-sm">
                 {user.lastLogin ? getRelativeTime(user.lastLogin) : 'Never'}
               </TableCell>
-              <TableCell className="text-slate-600 text-sm">
+              <TableCell className="text-muted-foreground text-sm">
                 {formatDate(user.createdAt, 'short')}
               </TableCell>
               <TableCell className="text-right">
@@ -91,7 +91,7 @@ export const UserTable = ({ users, onEdit, onDelete, onResetPassword }) => {
                     variant="ghost"
                     size="sm"
                     onClick={() => onDelete(user)}
-                    className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                    className="text-destructive hover:text-destructive hover:bg-destructive/10"
                     data-testid={`delete-user-${user.id}`}
                   >
                     <Trash2 className="h-4 w-4" />
