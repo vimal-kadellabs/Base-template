@@ -4,6 +4,7 @@ export const ROUTES = {
   DASHBOARD: '/dashboard',
   USERS: '/users',
   CONFIG: '/config',
+  SETTINGS: '/settings',
 };
 
 // Route configuration with metadata
@@ -34,5 +35,12 @@ export const ROUTE_CONFIG = [
     isPublic: false,
     requiresAuth: true,
     allowedRoles: ['admin'],
+  },
+  {
+    path: ROUTES.SETTINGS,
+    name: 'Settings',
+    isPublic: false,
+    requiresAuth: true,
+    allowedRoles: ['user', 'admin'],
   },
 ];
