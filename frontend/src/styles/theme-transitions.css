@@ -3,34 +3,16 @@
  * Smooth transitions for theme changes
  */
 
-@layer base {
-  /* Smooth color transitions for theme changes */
-  *,
-  *::before,
-  *::after {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
-
-  /* Disable transitions during theme change to prevent flash */
-  .theme-transitioning *,
-  .theme-transitioning *::before,
-  .theme-transitioning *::after {
-    transition-duration: 0ms !important;
-  }
-}
-
 /* Sidebar transition */
 .sidebar-transition {
-  transition: width var(--layout-transition-duration) var(--layout-transition-timing),
-              transform var(--layout-transition-duration) var(--layout-transition-timing);
+  transition: width var(--layout-transition-duration, 300ms) var(--layout-transition-timing, ease),
+              transform var(--layout-transition-duration, 300ms) var(--layout-transition-timing, ease);
 }
 
 /* Content area transition when sidebar collapses */
 .content-transition {
-  transition: margin-left var(--layout-transition-duration) var(--layout-transition-timing),
-              padding-left var(--layout-transition-duration) var(--layout-transition-timing);
+  transition: margin-left var(--layout-transition-duration, 300ms) var(--layout-transition-timing, ease),
+              padding-left var(--layout-transition-duration, 300ms) var(--layout-transition-timing, ease);
 }
 
 /* Menu item transitions */
