@@ -21,6 +21,7 @@ import { ColorSchemeSelector } from './ColorSchemeSelector';
 import { FontSelector } from './FontSelector';
 import { NavPositionToggle } from './NavPositionToggle';
 import { LayoutSelector } from './LayoutSelector';
+import { LoginLayoutSelector } from './LoginLayoutSelector';
 
 export function AppearanceMenu({ className = '' }) {
   const { resetSettings } = useSettings();
@@ -67,6 +68,11 @@ export function AppearanceMenu({ className = '' }) {
         
         {/* Layout Type Section (only for vertical nav) */}
         <LayoutSelector />
+        
+        <Separator />
+        
+        {/* Login Layout Section */}
+        <LoginLayoutSelector />
       </CardContent>
     </Card>
   );
@@ -97,7 +103,7 @@ export function AppearanceMenuCompact({ className = '' }) {
         </Button>
       </div>
       
-      <ScrollArea className="h-[400px] pr-3">
+      <ScrollArea className="h-[450px] pr-3">
         <div className="space-y-5">
           <ColorSchemeSelector />
           <Separator />
@@ -106,6 +112,8 @@ export function AppearanceMenuCompact({ className = '' }) {
           <NavPositionToggle />
           <Separator />
           <LayoutSelector />
+          <Separator />
+          <LoginLayoutSelector />
         </div>
       </ScrollArea>
     </div>
