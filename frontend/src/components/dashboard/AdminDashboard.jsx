@@ -23,10 +23,10 @@ export const AdminDashboard = () => {
     <div className="space-y-6" data-testid="admin-dashboard">
       {/* Welcome Message */}
       <div>
-        <h2 className="text-2xl font-bold text-slate-900 mb-1">
+        <h2 className="text-2xl font-bold text-foreground mb-1">
           Welcome back, {currentUser?.username}!
         </h2>
-        <p className="text-slate-600">
+        <p className="text-muted-foreground">
           Here's what's happening with your platform today.
         </p>
       </div>
@@ -45,20 +45,20 @@ export const AdminDashboard = () => {
           <CardContent>
             <div className="space-y-3">
               {recentUsers.length === 0 ? (
-                <p className="text-sm text-slate-500 text-center py-4">No users found</p>
+                <p className="text-sm text-muted-foreground text-center py-4">No users found</p>
               ) : (
                 recentUsers.map((user) => (
                   <div
                     key={user.id}
-                    className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0"
+                    className="flex items-center justify-between py-2 border-b border-border last:border-0"
                   >
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white font-bold text-xs">
+                      <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xs">
                         {user.username.charAt(0).toUpperCase()}
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-slate-900">{user.username}</p>
-                        <p className="text-xs text-slate-500">{user.email}</p>
+                        <p className="text-sm font-medium text-foreground">{user.username}</p>
+                        <p className="text-xs text-muted-foreground">{user.email}</p>
                       </div>
                     </div>
                     <div className="text-right">
@@ -68,7 +68,7 @@ export const AdminDashboard = () => {
                       >
                         {user.role}
                       </Badge>
-                      <p className="text-xs text-slate-500 mt-1">
+                      <p className="text-xs text-muted-foreground mt-1">
                         {getRelativeTime(user.createdAt)}
                       </p>
                     </div>
@@ -89,36 +89,36 @@ export const AdminDashboard = () => {
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between mb-2">
-                  <span className="text-sm font-medium text-slate-600">Administrators</span>
-                  <span className="text-sm font-bold text-slate-900">{stats.admins}</span>
+                  <span className="text-sm font-medium text-muted-foreground">Administrators</span>
+                  <span className="text-sm font-bold text-foreground">{stats.admins}</span>
                 </div>
-                <div className="w-full bg-slate-200 rounded-full h-2">
+                <div className="w-full bg-muted rounded-full h-2">
                   <div
-                    className="bg-emerald-500 h-2 rounded-full"
+                    className="bg-primary h-2 rounded-full"
                     style={{ width: `${(stats.admins / stats.total) * 100}%` }}
                   ></div>
                 </div>
               </div>
               <div>
                 <div className="flex justify-between mb-2">
-                  <span className="text-sm font-medium text-slate-600">Regular Users</span>
-                  <span className="text-sm font-bold text-slate-900">{stats.regularUsers}</span>
+                  <span className="text-sm font-medium text-muted-foreground">Regular Users</span>
+                  <span className="text-sm font-bold text-foreground">{stats.regularUsers}</span>
                 </div>
-                <div className="w-full bg-slate-200 rounded-full h-2">
+                <div className="w-full bg-muted rounded-full h-2">
                   <div
                     className="bg-blue-500 h-2 rounded-full"
                     style={{ width: `${(stats.regularUsers / stats.total) * 100}%` }}
                   ></div>
                 </div>
               </div>
-              <div className="pt-4 border-t border-slate-200">
+              <div className="pt-4 border-t border-border">
                 <div className="flex justify-between">
-                  <span className="text-sm font-medium text-slate-600">Active / Total</span>
-                  <span className="text-sm font-bold text-slate-900">
+                  <span className="text-sm font-medium text-muted-foreground">Active / Total</span>
+                  <span className="text-sm font-bold text-foreground">
                     {stats.active} / {stats.total}
                   </span>
                 </div>
-                <div className="w-full bg-slate-200 rounded-full h-2 mt-2">
+                <div className="w-full bg-muted rounded-full h-2 mt-2">
                   <div
                     className="bg-green-500 h-2 rounded-full"
                     style={{ width: `${(stats.active / stats.total) * 100}%` }}
