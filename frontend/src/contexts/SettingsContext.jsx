@@ -174,6 +174,16 @@ export function SettingsProvider({ children, initialSettings = null }) {
   }, []);
 
   /**
+   * Update login layout
+   */
+  const setLoginLayout = useCallback((layout) => {
+    setSettingsState(prev => ({
+      ...prev,
+      login: { ...prev.login, layout }
+    }));
+  }, []);
+
+  /**
    * Toggle sidebar collapsed state
    */
   const toggleSidebar = useCallback(() => {
@@ -202,6 +212,7 @@ export function SettingsProvider({ children, initialSettings = null }) {
     font: settings.font,
     navPosition: settings.navigation.position,
     layoutType: settings.navigation.layout,
+    loginLayout: settings.login?.layout || 'center',
     
     // Sidebar state
     sidebarCollapsed,
@@ -217,10 +228,11 @@ export function SettingsProvider({ children, initialSettings = null }) {
     setFont,
     setNavPosition,
     setLayoutType,
+    setLoginLayout,
     setSidebarCollapsed,
     toggleSidebar,
     resetSettings,
-  }), [settings, sidebarCollapsed, isLoading, setSettings, setMode, toggleMode, setColorScheme, setFont, setNavPosition, setLayoutType, toggleSidebar, resetSettings]);
+  }), [settings, sidebarCollapsed, isLoading, setSettings, setMode, toggleMode, setColorScheme, setFont, setNavPosition, setLayoutType, setLoginLayout, toggleSidebar, resetSettings]);
 
   return (
     <SettingsContext.Provider value={value}>

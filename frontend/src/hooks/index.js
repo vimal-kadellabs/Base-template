@@ -11,5 +11,6 @@ export {
   useColorScheme, 
   useFont, 
   useNavPosition, 
-  useLayout 
+  useLayout,
+  useLoginLayout 
 } from './settings';
