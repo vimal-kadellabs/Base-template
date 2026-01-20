@@ -4,28 +4,25 @@
  */
 
 import React from 'react';
-import { ProtectedRoute } from '@/components/layout';
-import { BaseLayout, PageContainer } from '@/layouts';
-import { AppearanceMenu } from '@/components/appearance';
+import { ProtectedRoute, MainLayout } from '@/components/layout';
 import { PageHeader } from '@/components/common';
+import { AppearanceMenu } from '@/components/appearance';
 
 export const SettingsPage = () => {
   return (
     <ProtectedRoute>
-      <BaseLayout title="Settings">
-        <PageContainer maxWidth="4xl">
-          {/* Page Header */}
-          <PageHeader
-            title="Settings"
-            description="Manage your application preferences and appearance"
-          />
+      <MainLayout title="Settings">
+        {/* Page Header */}
+        <PageHeader
+          title="Settings"
+          description="Manage your application preferences and appearance"
+        />
 
-          {/* Appearance Settings */}
-          <div className="mt-6">
-            <AppearanceMenu />
-          </div>
-        </PageContainer>
-      </BaseLayout>
+        {/* Appearance Settings */}
+        <div className="mt-6">
+          <AppearanceMenu />
+        </div>
+      </MainLayout>
     </ProtectedRoute>
   );
 };
