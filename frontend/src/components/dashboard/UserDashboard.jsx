@@ -25,25 +25,25 @@ export const UserDashboard = () => {
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
-            <div className="flex justify-between py-2 border-b border-slate-100">
-              <span className="text-sm font-medium text-slate-600">Username:</span>
-              <span className="text-sm text-slate-900">{currentUser?.username}</span>
+            <div className="flex justify-between py-2 border-b border-border">
+              <span className="text-sm font-medium text-muted-foreground">Username:</span>
+              <span className="text-sm text-foreground">{currentUser?.username}</span>
             </div>
-            <div className="flex justify-between py-2 border-b border-slate-100">
-              <span className="text-sm font-medium text-slate-600">Email:</span>
-              <span className="text-sm text-slate-900">{currentUser?.email}</span>
+            <div className="flex justify-between py-2 border-b border-border">
+              <span className="text-sm font-medium text-muted-foreground">Email:</span>
+              <span className="text-sm text-foreground">{currentUser?.email}</span>
             </div>
-            <div className="flex justify-between py-2 border-b border-slate-100">
-              <span className="text-sm font-medium text-slate-600">Role:</span>
-              <span className="text-sm text-slate-900 capitalize">{currentUser?.role}</span>
+            <div className="flex justify-between py-2 border-b border-border">
+              <span className="text-sm font-medium text-muted-foreground">Role:</span>
+              <span className="text-sm text-foreground capitalize">{currentUser?.role}</span>
             </div>
-            <div className="flex justify-between py-2 border-b border-slate-100">
-              <span className="text-sm font-medium text-slate-600">Status:</span>
-              <span className="text-sm text-slate-900 capitalize">{currentUser?.status}</span>
+            <div className="flex justify-between py-2 border-b border-border">
+              <span className="text-sm font-medium text-muted-foreground">Status:</span>
+              <span className="text-sm text-foreground capitalize">{currentUser?.status}</span>
             </div>
             <div className="flex justify-between py-2">
-              <span className="text-sm font-medium text-slate-600">Member Since:</span>
-              <span className="text-sm text-slate-900">{formatDate(currentUser?.createdAt, 'long')}</span>
+              <span className="text-sm font-medium text-muted-foreground">Member Since:</span>
+              <span className="text-sm text-foreground">{formatDate(currentUser?.createdAt, 'long')}</span>
             </div>
           </div>
         </CardContent>
@@ -57,13 +57,13 @@ export const UserDashboard = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-4">
-            <div className="text-center p-4 bg-slate-50 rounded-lg">
-              <p className="text-3xl font-bold text-slate-900">{stats.total}</p>
-              <p className="text-sm text-slate-600 mt-1">Total Users</p>
+            <div className="text-center p-4 bg-muted rounded-lg">
+              <p className="text-3xl font-bold text-foreground">{stats.total}</p>
+              <p className="text-sm text-muted-foreground mt-1">Total Users</p>
             </div>
-            <div className="text-center p-4 bg-slate-50 rounded-lg">
-              <p className="text-3xl font-bold text-slate-900">{stats.active}</p>
-              <p className="text-sm text-slate-600 mt-1">Active Users</p>
+            <div className="text-center p-4 bg-muted rounded-lg">
+              <p className="text-3xl font-bold text-foreground">{stats.active}</p>
+              <p className="text-sm text-muted-foreground mt-1">Active Users</p>
             </div>
           </div>
         </CardContent>

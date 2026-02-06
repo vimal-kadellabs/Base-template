@@ -59,7 +59,7 @@ export const LLMConfig = ({ config, onChange }) => {
             onChange={(e) => handleChange('temperature', parseFloat(e.target.value))}
             data-testid="llm-temperature-input"
           />
-          <p className="text-xs text-slate-500">Controls randomness (0 = focused, 2 = creative)</p>
+          <p className="text-xs text-muted-foreground">Controls randomness (0 = focused, 2 = creative)</p>
         </div>
 
         {/* Max Tokens */}
@@ -75,14 +75,14 @@ export const LLMConfig = ({ config, onChange }) => {
             onChange={(e) => handleChange('maxTokens', parseInt(e.target.value))}
             data-testid="llm-max-tokens-input"
           />
-          <p className="text-xs text-slate-500">Maximum length of generated responses</p>
+          <p className="text-xs text-muted-foreground">Maximum length of generated responses</p>
         </div>
 
         {/* Enable Logging */}
         <div className="flex items-center justify-between py-2">
           <div className="space-y-0.5">
             <Label htmlFor="enableLogging">Enable Logging</Label>
-            <p className="text-sm text-slate-500">Log LLM requests and responses</p>
+            <p className="text-sm text-muted-foreground">Log LLM requests and responses</p>
           </div>
           <Switch
             id="enableLogging"

@@ -45,10 +45,10 @@ export const AlertConfig = ({ config, onChange }) => {
       </CardHeader>
       <CardContent className="space-y-4">
         {/* Enable Alerts */}
-        <div className="flex items-center justify-between py-2 border-b border-slate-100">
+        <div className="flex items-center justify-between py-2 border-b border-border">
           <div className="space-y-0.5">
             <Label htmlFor="enableAlerts">Enable Alerts</Label>
-            <p className="text-sm text-slate-500">Turn on/off all alert notifications</p>
+            <p className="text-sm text-muted-foreground">Turn on/off all alert notifications</p>
           </div>
           <Switch
             id="enableAlerts"
@@ -60,7 +60,7 @@ export const AlertConfig = ({ config, onChange }) => {
 
         {/* Alert Thresholds */}
         <div className="pt-4">
-          <h4 className="text-sm font-medium text-slate-900 mb-3">Alert Thresholds</h4>
+          <h4 className="text-sm font-medium text-foreground mb-3">Alert Thresholds</h4>
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -110,8 +110,8 @@ export const AlertConfig = ({ config, onChange }) => {
         </div>
 
         {/* Alert Types */}
-        <div className="pt-4 border-t border-slate-200">
-          <h4 className="text-sm font-medium text-slate-900 mb-3">Alert Types</h4>
+        <div className="pt-4 border-t border-border">
+          <h4 className="text-sm font-medium text-foreground mb-3">Alert Types</h4>
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <Label htmlFor="systemErrors">System Errors</Label>

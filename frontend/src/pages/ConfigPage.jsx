@@ -74,7 +74,7 @@ export const ConfigPage = () => {
             <Button
               onClick={handleSave}
               disabled={!hasChanges || saving}
-              className="bg-emerald-600 hover:bg-emerald-700"
+              className="bg-primary hover:bg-primary/90"
               data-testid="save-config-button"
             >
               <Save className="h-4 w-4 mr-2" />
@@ -111,8 +111,8 @@ export const ConfigPage = () => {
 
         {/* Unsaved Changes Warning */}
         {hasChanges && (
-          <div className="fixed bottom-6 right-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4 shadow-lg">
-            <p className="text-sm text-yellow-800 font-medium">
+          <div className="fixed bottom-6 right-6 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 shadow-lg">
+            <p className="text-sm text-yellow-800 dark:text-yellow-200 font-medium">
               You have unsaved changes. Don't forget to save!
             </p>
           </div>

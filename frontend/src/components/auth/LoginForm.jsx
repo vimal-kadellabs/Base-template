@@ -5,10 +5,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Shield, AlertCircle } from 'lucide-react';
+import { ThemeModeToggle } from '@/components/header/ThemeModeToggle';
 
 /**
  * LoginForm Component
- * Login form with username and password
+ * Login form with username and password - theme aware
  */
 export const LoginForm = () => {
   const { login } = useAuth();
@@ -52,11 +53,16 @@ export const LoginForm = () => {
   };
 
   return (
-    <Card className="w-full max-w-md" data-testid="login-form">
+    <Card className="w-full max-w-md relative" data-testid="login-form">
+      {/* Theme Toggle in top right */}
+      <div className="absolute top-4 right-4">
+        <ThemeModeToggle showTooltip={false} />
+      </div>
+      
       <CardHeader className="space-y-1">
         <div className="flex items-center justify-center mb-4">
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center">
-            <Shield className="h-8 w-8 text-white" />
+          <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+            <Shield className="h-8 w-8 text-primary-foreground" />
           </div>
         </div>
         <CardTitle className="text-2xl font-bold text-center">Welcome Back</CardTitle>
@@ -69,11 +75,11 @@ export const LoginForm = () => {
           {/* Error Message */}
           {error && (
             <div
-              className="flex items-center space-x-2 p-3 bg-red-50 border border-red-200 rounded-lg"
+              className="flex items-center space-x-2 p-3 bg-destructive/10 border border-destructive/20 rounded-lg"
               data-testid="login-error"
             >
-              <AlertCircle className="h-4 w-4 text-red-600" />
-              <span className="text-sm text-red-600">{error}</span>
+              <AlertCircle className="h-4 w-4 text-destructive" />
+              <span className="text-sm text-destructive">{error}</span>
             </div>
           )}
 
@@ -112,7 +118,7 @@ export const LoginForm = () => {
           {/* Submit Button */}
           <Button
             type="submit"
-            className="w-full bg-emerald-600 hover:bg-emerald-700"
+            className="w-full"
             disabled={loading}
             data-testid="login-submit-button"
           >
@@ -121,14 +127,14 @@ export const LoginForm = () => {
         </form>
 
         {/* Demo Credentials */}
-        <div className="mt-6 pt-6 border-t border-slate-200">
-          <p className="text-xs text-slate-500 text-center mb-2">Demo Credentials:</p>
-          <div className="text-xs text-slate-600 space-y-1">
+        <div className="mt-6 pt-6 border-t border-border">
+          <p className="text-xs text-muted-foreground text-center mb-2">Demo Credentials:</p>
+          <div className="text-xs text-muted-foreground space-y-1">
             <p className="text-center">
-              <strong>Admin:</strong> admin / admin123
+              <strong className="text-foreground">Admin:</strong> admin / admin123
             </p>
             <p className="text-center">
-              <strong>User:</strong> user / user123
+              <strong className="text-foreground">User:</strong> user / user123
             </p>
           </div>
         </div>

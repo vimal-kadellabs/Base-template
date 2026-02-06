@@ -28,7 +28,7 @@ export const FilterDropdown = ({
   return (
     <div className="space-y-2" data-testid="filter-dropdown">
       {label && (
-        <Label className="text-sm font-medium text-slate-700">{label}</Label>
+        <Label className="text-sm font-medium text-foreground">{label}</Label>
       )}
       <Select value={value} onValueChange={onChange}>
         <SelectTrigger data-testid="filter-trigger">

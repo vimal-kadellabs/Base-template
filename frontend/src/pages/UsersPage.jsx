@@ -117,7 +117,7 @@ export const UsersPage = () => {
           action={
             <Button
               onClick={() => setShowAddModal(true)}
-              className="bg-emerald-600 hover:bg-emerald-700"
+              className="bg-primary hover:bg-primary/90"
               data-testid="add-user-button"
             >
               <Plus className="h-4 w-4 mr-2" />
@@ -242,7 +242,7 @@ export const UsersPage = () => {
               <Button
                 onClick={confirmResetPassword}
                 data-testid="reset-password-confirm"
-                className="bg-emerald-600 hover:bg-emerald-700"
+                className="bg-primary hover:bg-primary/90"
               >
                 Reset Password
               </Button>

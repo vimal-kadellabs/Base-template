@@ -15,6 +15,7 @@ import { cn } from '@/lib/utils';
 /**
  * Sidebar Component
  * Navigation sidebar with role-based menu items
+ * Note: This is a legacy component. New layouts use the theme system.
  */
 export const Sidebar = () => {
   const { currentUser, isAdmin } = useAuth();
@@ -53,24 +54,24 @@ export const Sidebar = () => {
   return (
     <aside
       className={cn(
-        'bg-slate-900 text-slate-100 transition-all duration-300 flex flex-col h-screen sticky top-0',
+        'bg-sidebar text-sidebar-foreground transition-all duration-300 flex flex-col h-screen sticky top-0 border-r border-sidebar-border',
         isCollapsed ? 'w-20' : 'w-64'
       )}
       data-testid="sidebar"
     >
       {/* Logo and Toggle */}
-      <div className="p-6 flex items-center justify-between border-b border-slate-800">
+      <div className="p-6 flex items-center justify-between border-b border-sidebar-border">
         {!isCollapsed && (
           <div className="flex items-center space-x-2" data-testid="sidebar-logo">
-            <LayoutGrid className="h-8 w-8 text-emerald-400" />
-            <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
+            <LayoutGrid className="h-8 w-8 text-primary" />
+            <span className="text-xl font-bold text-foreground">
               Admin Panel
             </span>
           </div>
         )}
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className="p-2 rounded-lg hover:bg-slate-800 transition-colors"
+          className="p-2 rounded-lg hover:bg-sidebar-accent transition-colors"
           data-testid="sidebar-toggle"
           aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
@@ -95,16 +96,16 @@ export const Sidebar = () => {
               data-testid={`nav-link-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
               className={cn(
                 'flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200',
-                'hover:bg-slate-800 group',
+                'hover:bg-sidebar-accent group',
                 active
-                  ? 'bg-emerald-500/10 text-emerald-400 border-l-4 border-emerald-400'
-                  : 'text-slate-300 hover:text-white border-l-4 border-transparent'
+                  ? 'bg-sidebar-primary text-sidebar-primary-foreground'
+                  : 'text-sidebar-foreground hover:text-sidebar-accent-foreground'
               )}
             >
               <Icon
                 className={cn(
                   'h-5 w-5 transition-colors',
-                  active ? 'text-emerald-400' : 'text-slate-400 group-hover:text-white'
+                  active ? 'text-sidebar-primary-foreground' : 'text-muted-foreground group-hover:text-sidebar-accent-foreground'
                 )}
               />
               {!isCollapsed && (
@@ -116,17 +117,17 @@ export const Sidebar = () => {
       </nav>
 
       {/* User Info */}
-      <div className="p-4 border-t border-slate-800" data-testid="sidebar-user-info">
+      <div className="p-4 border-t border-sidebar-border" data-testid="sidebar-user-info">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white font-bold text-sm">
+          <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
             {currentUser?.username?.charAt(0).toUpperCase()}
           </div>
           {!isCollapsed && (
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white truncate">
+              <p className="text-sm font-medium text-foreground truncate">
                 {currentUser?.username}
               </p>
-              <p className="text-xs text-slate-400 capitalize">
+              <p className="text-xs text-muted-foreground capitalize">
                 {currentUser?.role}
               </p>
             </div>
